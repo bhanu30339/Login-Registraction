@@ -6,7 +6,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    // 🛠️ Check if already logged in
+    //  Check if already logged in
     useEffect(() => {
         if (localStorage.getItem('isLoggedIn')) {
             alert('You are already logged in!');
@@ -25,7 +25,7 @@ const Login = () => {
         if ((email === storedUser.email || email === storedUser.username) && password === storedUser.password) {
             alert('Login successful!');
             localStorage.setItem('isLoggedIn', true);
-            navigate('/login'); // 🚀 Redirect back to login page after login
+            navigate('/login'); // Redirect back to login page after login
         } else {
             alert('Invalid email/username or password');
         }

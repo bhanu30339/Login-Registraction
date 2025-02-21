@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -19,7 +20,9 @@ const Register = () => {
         }
 
         const userData = { username, email, password };
-        localStorage.setItem('user', JSON.stringify(userData)); // Save user data
+        axios.post('https://test1-30e71-default-rtdb.firebaseio.com/register.json',userData).then(()=> alert("Submitteed Succefuly"))
+
+        // localStorage.setItem('user', JSON.stringify(userData)); // Save user data
         alert('Registration successful! Redirecting to Login.');
         navigate('/login'); // Redirect to Login Page
     };
